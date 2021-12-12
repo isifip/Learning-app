@@ -23,7 +23,7 @@ struct ContentDetailView: View {
                     .cornerRadius(10)
             }
             // TODO: Description
-            
+            CodeTextView()
             
             // Show next lesson button, only if there is a next lesson
             if model.hasNextLesson() {
@@ -39,13 +39,14 @@ struct ContentDetailView: View {
                             .frame(height: 48)
                         
                         
-                        Text("Next lesson \(model.currentModule!.content.lessons[model.currentLessonIndex + 1].title)")
+                        Text("Next lesson - \(model.currentModule!.content.lessons[model.currentLessonIndex + 1].title)")
                             .foregroundColor(Color("randomColor"))
                             .bold()
                     }
                 }
             }
         }
+        .navigationTitle(lesson?.title ?? "")
         .padding()
     }
     
