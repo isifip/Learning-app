@@ -33,11 +33,18 @@ struct HomeView: View {
                                         count: "\(module.content.lessons.count) Lessons",
                                         time: module.content.time)
                                 }
-                                HomeViewRow(image: module.test.image,
-                                            title: "Test \(module.category)",
-                                            description: module.test.description,
-                                            count: "\(module.test.questions.count) Lessons",
-                                            time: module.test.time)
+                                NavigationLink(tag: module.id, selection: $model.currentTestSelected) {
+                                    TestView()
+                                        .onAppear {
+                                            model.beginTest(module.id)
+                                        }
+                                } label: {
+                                    HomeViewRow(image: module.test.image,
+                                                title: "Test \(module.category)",
+                                                description: module.test.description,
+                                                count: "\(module.test.questions.count) Lessons",
+                                                time: module.test.time)
+                                }
                             }
                         }
                     }
