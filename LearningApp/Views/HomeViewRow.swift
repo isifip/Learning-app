@@ -32,8 +32,10 @@ struct HomeViewRow: View {
                         //.font(.title3)
                         .bold()
                     Text(description)
+                        .multilineTextAlignment(.leading)
                         .padding(.bottom, 20)
                         .font(.caption)
+                        
                     HStack {
                         Image(systemName: "text.book.closed")
                             .font(.callout)
