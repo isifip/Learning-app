@@ -6,15 +6,25 @@
 //
 
 import Foundation
+import SwiftUI
 
 class ContentModel: ObservableObject {
+    
+    // List of modules
     @Published var modules = [Module]()
+    // Current module
+    @Published var currentModule: Module?
+    var currentModuleIndex = 0
+    
+    
     
     var styleData: Data?
     
     init() {
         getLocalData()
     }
+
+    //MARK: --> Data Methods
     func getLocalData() {
         let jsonUrl = Bundle.main.url(forResource: "data", withExtension: "json")
         do {
@@ -34,4 +44,22 @@ class ContentModel: ObservableObject {
             print("Couldn't parse local style data.")
         }
     }
+    
+    //MARK: --> Module Navigation Methods
+    func beginModule(_ moduleid: Int) {
+        
+        // Find the index for this module id
+        for index in 0..<modules.count {
+            if modules[index].id == moduleid {
+                // Found matching module
+                currentModuleIndex = index
+                break
+            }
+        }
+        
+        // Set the current module
+        currentModule = modules[currentModuleIndex]
+        
+    }
+    
 }

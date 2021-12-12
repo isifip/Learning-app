@@ -13,12 +13,14 @@ struct HomeViewRow: View {
     var description: String
     var count: String
     var time: String
+    
     var body: some View {
         ZStack {
             Rectangle()
                 .foregroundColor(Color("randomColor"))
                 .cornerRadius(20)
-                .shadow(radius: 10)
+                .shadow(radius: 7)
+                .aspectRatio(CGSize(width: 335, height: 175), contentMode: .fit)
             HStack {
                 Image(image)
                     .resizable()
@@ -48,13 +50,11 @@ struct HomeViewRow: View {
             }
             .padding(.horizontal, 20)
         }
-        .padding()
-        .frame(height: 220)
     }
 }
 
 struct HomeViewRow_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewRow(image: "swift", title: "Learn Swift", description: "some description asfasf  safasfasfasfas asf asf asfasfasf fasf ff", count: "10 Lessons", time: "2 Hours")
+        HomeViewRow(image: "swift", title: "Learn Swift", description: "some description asfasf  safasfasfasfas asf asf asfasfasf 12", count: "10 Lessons", time: "2 Hours")
     }
 }

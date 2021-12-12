@@ -18,34 +18,37 @@ struct HomeView: View {
                     .padding(.leading, 20)
                 ScrollView {
                     LazyVStack {
-                        VStack {
-                            ForEach(model.modules) { module in
-                                
-                            
-                                HomeViewRow(image: module.content.image,
-                                            title: "Learn \(module.category)",
-                                            description: module.content.description,
-                                            count: "\(module.content.lessons.count) Lessons",
-                                            time: module.content.time)
+                        ForEach(model.modules) { module in
+                            VStack() {
+                                NavigationLink {
+                                    ContentView()
+                                        .onAppear {
+                                            model.beginModule(module.id)
+                                        }
+                                } label: {
+                                    // Learning card
+                                    HomeViewRow(image: module.content.image,
+                                                title: "Learn \(module.category)",
+                                                description: module.content.description,
+                                                count: "\(module.content.lessons.count) Lessons",
+                                                time: module.content.time)
+                                }
                                 HomeViewRow(image: module.test.image,
                                             title: "Test \(module.category)",
                                             description: module.test.description,
                                             count: "\(module.test.questions.count) Lessons",
                                             time: module.test.time)
-                                HomeViewRow(image: module.content.image,
-                                            title: "Learn \(module.category)",
-                                            description: module.content.description,
-                                            count: "\(module.content.lessons.count) Lessons",
-                                            time: module.content.time)
                             }
                         }
                     }
+                    .tint(.black)
+                    .padding()
                 }
             }
             .navigationTitle("Get Started")
             
         }
-
+        
     }
 }
 
