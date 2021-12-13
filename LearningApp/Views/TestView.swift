@@ -99,7 +99,8 @@ struct TestView: View {
         }
         else {
             // Test hasnt loaded yet
-            ProgressView()
+//            ProgressView()
+            TestResultView(numCorrect: numCorrect)
         }
     }
     var buttonText: String {
