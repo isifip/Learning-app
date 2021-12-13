@@ -37,7 +37,7 @@ struct ContentDetailView: View {
                         
                         
                         Text("Next lesson - \(model.currentModule!.content.lessons[model.currentLessonIndex + 1].title)")
-                            .foregroundColor(Color("randomColor"))
+                            .foregroundColor(Color.white)
                             .bold()
                     }
                 }
@@ -51,7 +51,7 @@ struct ContentDetailView: View {
                         RectangleCard(color: .green)
                             .frame(height: 48)
                         Text("Complete")
-                            .foregroundColor(Color("randomColor"))
+                            .foregroundColor(Color.white)
                             .bold()
                     }
                 }

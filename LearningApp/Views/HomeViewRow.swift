@@ -17,7 +17,7 @@ struct HomeViewRow: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(Color("randomColor"))
+                .foregroundColor(.white)
                 .cornerRadius(20)
                 .shadow(radius: 7)
                 .aspectRatio(CGSize(width: 335, height: 175), contentMode: .fit)

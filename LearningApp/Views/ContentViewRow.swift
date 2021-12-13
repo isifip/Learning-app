@@ -15,7 +15,7 @@ struct ContentViewRow: View {
         let lesson = model.currentModule!.content.lessons[index]
         ZStack(alignment: .leading) {
             Rectangle()
-                .foregroundColor(Color("randomColor"))
+                .foregroundColor(.white)
                 .frame(height: 60)
                 .cornerRadius(10)
                 .shadow(radius: 5)
