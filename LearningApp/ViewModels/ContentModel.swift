@@ -80,7 +80,11 @@ class ContentModel: ObservableObject {
                 let decoder = JSONDecoder()
                 // Decode
                 let modules = try decoder.decode([Module].self, from: data!)
-                self.modules += modules
+                DispatchQueue.main.async {
+                    //Append parsed modules into modules
+                    self.modules += modules
+                }
+               
             } catch {
                 print(error)
             }
@@ -120,6 +124,10 @@ class ContentModel: ObservableObject {
     }
     
     func hasNextLesson() -> Bool {
+        
+        guard currentModule != nil else {
+            return false
+        }
         if currentLessonIndex + 1 < currentModule!.content.lessons.count {
             return true
         } else {
